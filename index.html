@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Dhanabahadur Muktan — IT Lecturer, Machine Learning Enthusiast, and Researcher based in Nepal." />
+  <meta name="keywords"
+    content="Machine Learning Engineer, Lecturer, Nepal, Portfolio, Data Science, Crop Yield Prediction, Nepali, Viral" />
+  <meta name="author" content="Dhana Bahadur Muktan" />
+  <title>DB Muktan | Lecturer & ML Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link rel="preload" as="image" href="db_moktan_dark.jpg">
+  <link rel="preload" as="image" href="db_moktan_light.jpg">
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-initials">DB</span>
+        <!-- <span class="logo-text">DB Muktan</span> -->
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#research" class="nav-link">Research</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="themeIcon"></i>
+        </button>
+        <a href="#" class="btn-cv" download>
+          <i class="fas fa-download"></i> CV
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <!-- Anime.js neural network canvas -->
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+    <div class="hero-bg-grid"></div>
+    <div class="hero-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content reveal">
+        <p class="hero-greeting"><span class="dot"></span> Exploring Opportunities in Machine Learning & AI</p>
+        <h1 class="hero-name">
+          Dhana Bahadur<br /><em>Muktan</em>
+        </h1>
+        <div class="hero-title">
+          <span class="static-text">I am a </span>
+          <span class="typed-wrapper">
+            <span class="typed-text" id="typedText"></span>
+            <span class="cursor">|</span>
+          </span>
+        </div>
+        <p class="hero-tagline">
+          Bridging real-world impact and artificial intelligence from the hills of Nepal,
+          a Machine Learning Engineer diving deep into AI, Deep Learning, NLP, Generative AI,
+          and Agentic systems, building intelligent solutions beyond academia.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View Projects
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="8">0</span><span>+</span>
+            <p>Years Teaching</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="500">0</span><span>+</span>
+            <p>Students Mentored</p>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="5">0</span><span>+</span>
+            <p>ML Projects</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal reveal-right">
+        <div class="profile-card">
+          <div class="profile-img-wrapper">
+            <div class="profile-img-placeholder">
+              <img id="profilePhoto" src="db_moktan_dark.jpg" alt="Dhana Bahadur Muktan"
+                onerror="this.style.display='none';document.getElementById('profileFallback').style.display='flex';" />
+              <span id="profileFallback"
+                style="display:none;align-items:center;justify-content:center;width:100%;height:100%;position:absolute;inset:0;">
+                <i class="fas fa-user-tie"></i>
+              </span>
+            </div>
+            <div class="profile-badge">
+              <i class="fas fa-brain"></i>
+              <span>AI/ML Researcher</span>
+            </div>
+          </div>
+          <div class="floating-chip chip-1"><i class="fas fa-seedling"></i>ML Engineer</div>
+          <div class="floating-chip chip-2"><i class="fas fa-chart-line"></i> Data Scientist</div>
+          <div class="floating-chip chip-3"><i class="fas fa-graduation-cap"></i> Lecturer</div>
+          <div class="floating-chip chip-4"><i class="fab fa-python"></i>Python</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">01 — About</span>
+        <h2 class="section-title">The Story So Far</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-intro">
+            I am <strong>Dhana Bahadur Muktan</strong>, an IT Lecturer and Machine Learning Engineer based 
+            in Nepal, focused on designing and developing practical, data-driven solutions      that       bridge education, research, and real-world impact.
+          </p>
+          <p>
+            My professional journey began in education shortly after completing my +2, driven by a strong belief that knowledge grows through sharing. This path helped me build a solid foundation in communication, analytical thinking, and problem-solving through continuous classroom engagement. Over time, I transitioned into specialized IT education, completing my BSc in CSIT followed by an MTech in Information Technology, while actively contributing to academic teaching and mentoring.
+          </p>
+          <p>
+            Currently, I am focused on growing as an AI Engineer, with active interest in Machine Learning, Generative AI, Natural Language Processing (NLP), and Agentic AI systems, aiming to build intelligent and scalable AI solutions for real-world applications.</p>
+<p>
+I am passionate about building impactful AI/ML systems and continuously advancing my expertise in data science, model development, and modern artificial intelligence technologies.</p>
+          <div class="about-interests">
+            <h4>Core Interests</h4>
+            <div class="interest-tags">
+              <span class="tag"><i class="fas fa-brain"></i> Artificial Intelligence</span>
+              <span class="tag"><i class="fas fa-chalkboard-teacher"></i> Education Technology</span>
+              <span class="tag"><i class="fas fa-seedling"></i> AgriTech Research</span>
+              <span class="tag"><i class="fas fa-chart-bar"></i> Data Science</span>
+              <span class="tag"><i class="fas fa-microscope"></i> Academic Research</span>
+              <span class="tag"><i class="fas fa-database"></i> Nepali NLP</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-cards reveal reveal-right">
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h5>Location</h5>
+              <p>Nepal 🇳🇵</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-briefcase"></i></div>
+            <div>
+              <h5>Current Role</h5>
+              <p>IT Lecturer & ML Researcher</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-language"></i></div>
+            <div>
+              <h5>Languages</h5>
+              <p>Nepali, English, Hindi</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i class="fas fa-heart"></i></div>
+            <div>
+              <h5>Passion</h5>
+              <p>AI for Social Impact</p>
+            </div>
+          </div>
+          <div class="objective-card">
+            <div class="objective-icon"><i class="fas fa-bullseye"></i></div>
+            <h4>Career Objective</h4>
+            <p>
+              To contribute to the advancement of AI research in Nepal while
+              nurturing the next generation of technology leaders through
+              innovative, research-informed education.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE TIMELINE ========== -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">02 — Experience</span>
+        <h2 class="section-title">Professional Journey</h2>
+      </div>
+      <div class="timeline">
+<!-- Item 4 -->
+        <div class="timeline-item reveal" data-side="left">
+          <div class="timeline-marker">
+            <div class="marker-dot active"><i class="fas fa-brain"></i></div>
+          </div>
+          <div class="timeline-card card-current">
+            <div class="timeline-meta">
+              <span class="timeline-period">2022 – Present</span>
+              <span class="timeline-badge badge-current">Current</span>
+            </div>
+            <h3 class="timeline-role">IT Lecturer & ML Researcher</h3>
+            <p class="timeline-org"><i class="fas fa-university"></i> Academic Institution, Nepal</p>
+            <p class="timeline-desc">
+              Currently serving as IT Lecturer while actively conducting research in
+              Machine Learning, with a focus on agricultural applications using Nepali
+              datasets. Leading the development of crop yield prediction models that
+              could benefit Nepali farmers.
+            </p>
+            <ul class="timeline-highlights">
+              <li>Teaching Machine Learning, Data Science, and AI courses</li>
+              <li>Researching crop yield prediction using ML models</li>
+              <li>Building Nepali-language datasets for NLP research</li>
+              <li>Mentoring thesis students in ML and data science projects</li>
+              <li>Collaborating on international AI-in-agriculture research</li>
+            </ul>
+            <div class="timeline-skills">
+              <span>Machine Learning</span><span>Python</span><span>TensorFlow</span>
+              <span>Research</span><span>Data Science</span>
+            </div>
+          </div>
+        </div>
+                <!-- Item 3 -->
+        <div class="timeline-item reveal" data-side="right">
+          <div class="timeline-marker">
+            <div class="marker-dot"><i class="fas fa-university"></i></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-period">2019 – 2022</span>
+              <span class="timeline-badge badge-advance">Advancement</span>
+            </div>
+            <h3 class="timeline-role">IT Lecturer</h3>
+            <p class="timeline-org"><i class="fas fa-university"></i> Technical College / Campus, Nepal</p>
+            <p class="timeline-desc">
+              Joined as a full-time IT Lecturer at the undergraduate level, teaching
+              advanced computing subjects. Pursued MTech in Information Technology to
+              deepen technical expertise and research capabilities.
+            </p>
+            <ul class="timeline-highlights">
+              <li>Lectured on Data Structures, Algorithms, and Software Engineering</li>
+              <li>Introduced Python programming to the curriculum</li>
+              <li>Supervised 20+ student mini-projects and final year projects</li>
+              <li>Enrolled in MTech IT program for advanced specialization</li>
+            </ul>
+            <div class="timeline-skills">
+              <span>Python</span><span>Algorithms</span><span>OOP</span><span>Web Dev</span>
+            </div>
+          </div>
+        </div>
+                <!-- Item 2 -->
+        <div class="timeline-item reveal" data-side="left">
+          <div class="timeline-marker">
+            <div class="marker-dot"><i class="fas fa-laptop-code"></i></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-period">2016 – 2019</span>
+              <span class="timeline-badge badge-growth">Growth</span>
+            </div>
+            <h3 class="timeline-role">Computer Science Instructor</h3>
+            <p class="timeline-org"><i class="fas fa-school"></i> Higher Secondary School / College, Nepal</p>
+            <p class="timeline-desc">
+              Transitioned to teaching Computer Science and IT subjects at the +2 level.
+              Simultaneously pursued BSc in Computer Science and Information Technology,
+              blending academic study with practical teaching.
+            </p>
+            <ul class="timeline-highlights">
+              <li>Taught C Programming, Database Management, and Computer Fundamentals</li>
+              <li>Established the school's first computer lab curriculum</li>
+              <li>Completed BSc CSIT while teaching full-time</li>
+            </ul>
+            <div class="timeline-skills">
+              <span>C Programming</span><span>DBMS</span><span>Networking</span>
+            </div>
+          </div>
+        </div>
+        <!-- Item 1 -->
+        <div class="timeline-item reveal" data-side="right">
+          <div class="timeline-marker">
+            <div class="marker-dot"><i class="fas fa-chalkboard-teacher"></i></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-period">2014 – 2016</span>
+              <span class="timeline-badge badge-start">Career Start</span>
+            </div>
+            <h3 class="timeline-role">Secondary Level Teacher</h3>
+            <p class="timeline-org"><i class="fas fa-school"></i> Local Secondary School, Nepal</p>
+            <p class="timeline-desc">
+              Began my teaching career immediately after completing +2, instructing
+              students in Mathematics and Science. Developed foundational pedagogy skills
+              and discovered a deep passion for education.
+            </p>
+            <ul class="timeline-highlights">
+              <li>Delivered lessons to 100+ students across multiple grades</li>
+              <li>Developed engaging curriculum for Mathematics and Sciences</li>
+              <li>Mentored students for national board examinations</li>
+            </ul>
+            <div class="timeline-skills">
+              <span>Pedagogy</span><span>Mathematics</span><span>Science</span>
+            </div>
+          </div>
+        </div>
+       
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EDUCATION ========== -->
+  <section class="section education" id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">03 — Education</span>
+        <h2 class="section-title">Academic Foundation</h2>
+      </div>
+      <div class="edu-grid">
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-year">2019 – 2022</div>
+          <h3>Master of Technology (MTech)</h3>
+          <h4>Information Technology</h4>
+          <p class="edu-institution"><i class="fas fa-university"></i> Prestigious Technical University, Nepal / India
+          </p>
+          <p class="edu-desc">
+            Specialized in advanced computing, machine learning, and research
+            methodology. Thesis focused on applying ML to agricultural data for
+            crop yield prediction in Nepalese context.
+          </p>
+          <div class="edu-highlights">
+            <span><i class="fas fa-star"></i> Distinction</span>
+            <span><i class="fas fa-book"></i> ML Thesis</span>
+          </div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="edu-year">2014 – 2018</div>
+          <h3>Bachelor of Science (BSc)</h3>
+          <h4>Computer Science & Information Technology (CSIT)</h4>
+          <p class="edu-institution"><i class="fas fa-university"></i> Tribhuvan University, Nepal</p>
+          <p class="edu-desc">
+            Comprehensive program covering programming, databases, networking,
+            software engineering, and mathematics. Built a strong foundation in
+            computer science theory and applied technology.
+          </p>
+          <div class="edu-highlights">
+            <span><i class="fas fa-star"></i> First Division</span>
+            <span><i class="fas fa-trophy"></i> Merit Holder</span>
+          </div>
+        </div>
+
+        <div class="edu-card reveal">
+          <div class="edu-icon"><i class="fas fa-school"></i></div>
+          <div class="edu-year">2012 – 2014</div>
+          <h3>Higher Secondary (+2)</h3>
+          <h4>Science Stream (Physics, Chemistry, Math, Bio)</h4>
+          <p class="edu-institution"><i class="fas fa-school"></i> Higher Secondary School, Nepal</p>
+          <p class="edu-desc">
+            Completed higher secondary education in the science stream, building
+            analytical and quantitative foundations that would later support
+            both teaching and research careers.
+          </p>
+          <div class="edu-highlights">
+            <span><i class="fas fa-star"></i> Science Stream</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications -->
+      <div class="certs-section reveal">
+        <h3 class="certs-title">Certifications & Training</h3>
+        <div class="certs-grid">
+          <div class="cert-item">
+            <i class="fab fa-python"></i>
+            <span>Python for Data Science — Coursera</span>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-brain"></i>
+            <span>Machine Learning Specialization — Coursera / Andrew Ng</span>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-robot"></i>
+            <span>Deep Learning Fundamentals — Kaggle</span>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Data Analysis with Python — IBM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS (rendered dynamically by script.js) ========== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">04 — Projects</span>
+        <h2 class="section-title">Featured Work</h2>
+      </div>
+      <!-- JS renders filter buttons + cards here. To add/edit projects, update PROJECTS_DATA in script.js -->
+      <div class="project-filters reveal" id="projectFilters"></div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH ========== -->
+  <section class="section research" id="research">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">05 — Research</span>
+        <h2 class="section-title">Academic Contributions</h2>
+      </div>
+      <div class="research-grid">
+
+        <div class="research-main reveal">
+          <div class="research-tag">MTech Thesis</div>
+          <h3 class="research-title">
+            Machine Learning Approaches for Crop Yield Prediction
+            Using Agro-Climatic Parameters: A Nepali Context
+          </h3>
+          <p class="research-abstract">
+            This research investigates the application of multiple supervised learning
+            algorithms — including Random Forest, XGBoost, Support Vector Regression,
+            and Artificial Neural Networks — to predict agricultural yields for key
+            Nepalese crops. Using a novel dataset compiled from the Department of
+            Agriculture (DoA) Nepal and meteorological records, the study establishes
+            benchmark performance metrics and identifies the most effective ML
+            approaches for Nepal's unique agro-climatic conditions.
+          </p>
+          <div class="research-meta">
+            <div class="meta-item"><i class="fas fa-calendar"></i> 2022–2023</div>
+            <div class="meta-item"><i class="fas fa-university"></i> MTech Research</div>
+            <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Nepal Context</div>
+          </div>
+          <div class="research-keywords">
+            <span>Crop Yield Prediction</span>
+            <span>Random Forest</span>
+            <span>XGBoost</span>
+            <span>Agricultural ML</span>
+            <span>Nepali Dataset</span>
+            <span>Food Security</span>
+          </div>
+          <div class="research-cta">
+            <a href="#" class="btn btn-outline btn-sm"><i class="fas fa-file-pdf"></i> View Abstract</a>
+            <a href="#" class="btn btn-outline btn-sm"><i class="fab fa-github"></i> Repository</a>
+          </div>
+        </div>
+
+        <div class="research-sidebar">
+          <div class="research-interest reveal">
+            <h4><i class="fas fa-flask"></i> Research Interests</h4>
+            <ul>
+              <li><i class="fas fa-angle-right"></i> Machine Learning in Agriculture</li>
+              <li><i class="fas fa-angle-right"></i> Natural Language Processing for Nepali</li>
+              <li><i class="fas fa-angle-right"></i> AI Applications in Education</li>
+              <li><i class="fas fa-angle-right"></i> Predictive Analytics</li>
+              <li><i class="fas fa-angle-right"></i> Remote Sensing & GIS + ML</li>
+              <li><i class="fas fa-angle-right"></i> Climate Informatics</li>
+            </ul>
+          </div>
+
+          <div class="research-impact reveal">
+            <h4><i class="fas fa-chart-line"></i> Research Impact</h4>
+            <div class="impact-stats">
+              <div class="impact-item">
+                <span class="impact-num">1</span>
+                <p>Thesis Completed</p>
+              </div>
+              <div class="impact-item">
+                <span class="impact-num">3+</span>
+                <p>Papers in Progress</p>
+              </div>
+              <div class="impact-item">
+                <span class="impact-num">2</span>
+                <p>Open Datasets</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="research-collab reveal">
+            <h4><i class="fas fa-users"></i> Open to Collaboration</h4>
+            <p>
+              Actively seeking collaborators in AgriTech AI, NLP for South Asian
+              languages, and ML for social good. Reach out!
+            </p>
+            <a href="#contact" class="btn btn-primary btn-sm">Collaborate</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS (rendered dynamically by script.js) ========== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">06 — Skills</span>
+        <h2 class="section-title">Technical Arsenal</h2>
+      </div>
+      <!-- JS renders skill groups here. To add/edit skills, update SKILLS_DATA in script.js -->
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">07 — Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <p class="contact-intro">
+            Whether you're interested in collaboration, have an opportunity to share,
+            or simply want to discuss AI and education — I'd love to hear from you.
+          </p>
+          <div class="contact-details">
+            <a href="mailto:dhanabahadur.muktan@email.com" class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h5>Email</h5>
+                <p>dhanabahadur.muktan@email.com</p>
+              </div>
+            </a>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <h5>Location</h5>
+                <p>Nepal 🇳🇵</p>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h5>Response Time</h5>
+                <p>Within 24–48 hours</p>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" title="GitHub" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link" title="ResearchGate" target="_blank">
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="#" class="social-link" title="Google Scholar" target="_blank">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal reveal-right">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <p class="form-notice" id="formNotice"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="footer-brand-top">
+            <span class="logo-initials">DB</span>
+            <div>
+              <p class="footer-name">Dhana Bahadur Muktan</p>
+              <p class="footer-sub">Lecturer · ML Engineer · Researcher · Nepal</p>
+            </div>
+          </div>
+          <p class="footer-bio">
+            Passionate about bridging artificial intelligence and education to create
+            real-world impact in Nepal and beyond.
+          </p>
+        </div>
+
+        <!-- Navigation — column format -->
+        <div class="footer-nav-col">
+          <h6 class="footer-col-title">Navigation</h6>
+          <nav class="footer-links-col">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#research">Research</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <!-- Socials — horizontal format -->
+        <div class="footer-social-col">
+          <h6 class="footer-col-title">Connect</h6>
+          <div class="footer-social-row">
+            <a href="#" class="footer-social-link" title="GitHub" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="footer-social-link" title="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="footer-social-link" title="ResearchGate" target="_blank">
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="#" class="footer-social-link" title="Google Scholar" target="_blank">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="mailto:dhanabahadur.muktan@email.com" class="footer-social-link" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+          <p class="footer-location"><i class="fas fa-map-marker-alt"></i> Nepal 🇳🇵</p>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Dhana Bahadur Muktan. Crafted with <i class="fas fa-heart"></i> in Nepal.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
