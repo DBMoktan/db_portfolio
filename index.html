@@ -50,9 +50,9 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fas fa-sun" id="themeIcon"></i>
         </button>
-        <a href="#" class="btn-cv" download>
+        <button class="btn-cv" id="cvBtn" aria-label="Download CV">
           <i class="fas fa-download"></i> CV
-        </a>
+        </button>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -599,6 +599,8 @@ I am passionate about building impactful AI/ML systems and continuously advancin
 
         <div class="contact-form-wrapper reveal reveal-right">
           <form class="contact-form" id="contactForm">
+            <!-- Subject line for the email -->
+            <input type="hidden" name="_subject" value="New message from Portfolio" />
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -615,7 +617,7 @@ I am passionate about building impactful AI/ML systems and continuously advancin
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-full">
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
               <i class="fas fa-paper-plane"></i> Send Message
             </button>
             <p class="form-notice" id="formNotice"></p>
@@ -694,6 +696,34 @@ I am passionate about building impactful AI/ML systems and continuously advancin
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
+
+  <!-- ========== CV DOWNLOAD MODAL ========== -->
+  <div class="cv-modal-backdrop" id="cvModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="cv-modal" id="cvModal">
+      <button class="cv-modal-close" id="cvModalClose" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="cv-modal-icon">
+        <i class="fas fa-file-pdf"></i>
+      </div>
+      <h3 class="cv-modal-title" id="cvModalTitle">Download CV</h3>
+      <p class="cv-modal-name">Dhana Bahadur Muktan</p>
+      <p class="cv-modal-sub">Lecturer &amp; ML Engineer · Nepal</p>
+      <p class="cv-modal-desc">Download my latest curriculum vitae with full details on experience, education, research, and skills.</p>
+      <div class="cv-modal-meta">
+        <span><i class="fas fa-file-alt"></i> PDF Format</span>
+        <span><i class="fas fa-sync-alt"></i> Latest Version</span>
+      </div>
+      <div class="cv-modal-actions">
+        <a href="DB_Muktan_Resume.pdf" class="btn btn-primary" id="cvDownloadBtn" download>
+          <i class="fas fa-download"></i> Download
+        </a>
+        <button class="btn btn-outline" id="cvCancelBtn">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

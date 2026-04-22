@@ -23,7 +23,52 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initActiveNavLink();
   initHeroCanvas();
+  initCVModal();
 });
+
+/* ========== CV DOWNLOAD MODAL ========== */
+function initCVModal() {
+  const cvBtn     = document.getElementById('cvBtn');
+  const backdrop  = document.getElementById('cvModalBackdrop');
+  const closeBtn  = document.getElementById('cvModalClose');
+  const cancelBtn = document.getElementById('cvCancelBtn');
+  const downloadBtn = document.getElementById('cvDownloadBtn');
+
+  function openModal() {
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // Focus the download button for accessibility
+    setTimeout(() => downloadBtn.focus(), 50);
+  }
+
+  function closeModal() {
+    backdrop.classList.add('closing');
+    setTimeout(() => {
+      backdrop.classList.remove('active', 'closing');
+      document.body.style.overflow = '';
+      cvBtn.focus();
+    }, 280);
+  }
+
+  cvBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  cancelBtn.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeModal();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('active')) closeModal();
+  });
+
+  // Close modal after download is triggered
+  downloadBtn.addEventListener('click', () => {
+    setTimeout(closeModal, 300);
+  });
+}
 
 /* ========== THEME TOGGLE ========== */
 function initTheme() {
@@ -534,46 +579,54 @@ function initProjectFilter() {
 function initContactForm() {
   const form   = document.getElementById('contactForm');
   const notice = document.getElementById('formNotice');
+  const btn    = document.getElementById('submitBtn');
+  const originalBtnHTML = btn.innerHTML;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    // ── Client-side validation ─────────────────────────────────────────────
     const name    = form.querySelector('#name').value.trim();
     const email   = form.querySelector('#email').value.trim();
     const message = form.querySelector('#message').value.trim();
 
-    // Basic validation
     if (!name || !email || !message) {
-      showNotice(notice, '⚠️ Please fill in all required fields.', 'error');
+      showNotice(notice, '\u26a0\ufe0f Please fill in all required fields.', 'error');
       return;
     }
 
     if (!isValidEmail(email)) {
-      showNotice(notice, '⚠️ Please enter a valid email address.', 'error');
+      showNotice(notice, '\u26a0\ufe0f Please enter a valid email address.', 'error');
       return;
     }
 
-    // Simulate sending (mailto fallback)
-    const subject = form.querySelector('#subject').value.trim() || 'Portfolio Contact';
-    const mailtoLink = `mailto:dhanabahadur.muktan@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-
-    // Show sending state
-    const btn = form.querySelector('.btn-primary');
-    const originalHTML = btn.innerHTML;
+    // ── Loading state ──────────────────────────────────────────────────────
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    btn.disabled = true;
+    btn.disabled  = true;
 
-    setTimeout(() => {
-      // Open mailto
-      window.location.href = mailtoLink;
+    try {
+      const response = await fetch('https://formspree.io/f/mreradzl', {
+        method  : 'POST',
+        body    : new FormData(form),
+        headers : { 'Accept': 'application/json' },
+      });
 
-      showNotice(notice, '✅ Message prepared! Your email client should open shortly.', 'success');
-      form.reset();
-      btn.innerHTML = originalHTML;
-      btn.disabled = false;
-
-      setTimeout(() => { notice.textContent = ''; }, 6000);
-    }, 1200);
+      if (response.ok) {
+        showNotice(notice, '\u2705 Message sent! I\'ll get back to you within 24\u201348 hours.', 'success');
+        form.reset();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const errMsg = (data.errors && data.errors.map(err => err.message).join(', ')) ||
+                       'Something went wrong. Please try again or email me directly.';
+        showNotice(notice, `\u26a0\ufe0f ${errMsg}`, 'error');
+      }
+    } catch (_) {
+      showNotice(notice, '\u26a0\ufe0f Network error. Please check your connection and try again.', 'error');
+    } finally {
+      btn.innerHTML = originalBtnHTML;
+      btn.disabled  = false;
+      setTimeout(() => { notice.textContent = ''; notice.className = 'form-notice'; }, 8000);
+    }
   });
 }
 
