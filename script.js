@@ -297,7 +297,7 @@ const PROJECTS_DATA = [
     icon     : 'fas fa-seedling',
     category : 'ml research',
     tech     : ['Python', 'Scikit-learn', 'XGBoost', 'Pandas', 'Flask', 'Matplotlib'],
-    github   : '#',
+    github   : 'https://github.com/DBMoktan/crop-yield-prediction-nepal-ml',
     demo     : '#',
     featured : true,
     metrics  : [
