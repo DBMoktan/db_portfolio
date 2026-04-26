@@ -301,7 +301,7 @@ const PROJECTS_DATA = [
     demo     : '#',
     featured : true,
     metrics  : [
-      { val: '94.2%', label: 'Accuracy' },
+      { val: '87.7 %', label: 'Accuracy' },
       { val: '5',     label: 'ML Models' },
       { val: '3',     label: 'Crop Types' },
     ],
