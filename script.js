@@ -298,7 +298,7 @@ const PROJECTS_DATA = [
     category : 'ml research',
     tech     : ['Python', 'Scikit-learn', 'XGBoost', 'Pandas', 'Flask', 'Matplotlib'],
     github   : 'https://github.com/DBMoktan/crop-yield-prediction-nepal-ml',
-    demo     : '#',
+    demo     : 'https://crop-yield-prediction-in-nepal-ml.streamlit.app/',
     featured : true,
     metrics  : [
       { val: '87.7 %', label: 'Accuracy' },
